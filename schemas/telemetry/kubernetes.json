@@ -1,0 +1,116 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Kubernetes Telemetry Event",
+    "description": "Schema for Kubernetes cluster infrastructure telemetry.",
+    "type": "object",
+    "required": [
+        "timestamp",
+        "node_id",
+        "pod_id",
+        "asset_type",
+        "node_cpu_utilization",
+        "node_memory_utilization",
+        "pod_cpu_utilization",
+        "pod_memory_utilization",
+        "pod_restarts",
+        "disk_utilization",
+        "network_receive_mbps",
+        "network_transmit_mbps",
+        "error_count",
+        "pod_status",
+        "node_status",
+        "scenario",
+        "failure"
+    ],
+    "properties": {
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "node_id": {
+            "type": "string",
+            "pattern": "^k8s-node-[0-9]{3}$"
+        },
+        "pod_id": {
+            "type": "string",
+            "pattern": "^k8s-node-[0-9]{3}-pod-[0-9]{3}$"
+        },
+        "asset_type": {
+            "type": "string",
+            "const": "kubernetes"
+        },
+        "node_cpu_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "node_memory_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "pod_cpu_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "pod_memory_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "pod_restarts": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "disk_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "network_receive_mbps": {
+            "type": "number",
+            "minimum": 0
+        },
+        "network_transmit_mbps": {
+            "type": "number",
+            "minimum": 0
+        },
+        "error_count": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "pod_status": {
+            "type": "string",
+            "enum": [
+                "Running",
+                "CrashLoopBackOff",
+                "Unknown"
+            ]
+        },
+        "node_status": {
+            "type": "string",
+            "enum": [
+                "Ready",
+                "NotReady"
+            ]
+        },
+        "scenario": {
+            "type": "string",
+            "enum": [
+                "normal",
+                "high_cpu",
+                "memory_pressure",
+                "cpu_throttling",
+                "disk_pressure",
+                "network_saturation",
+                "pod_crash",
+                "node_failure"
+            ]
+        },
+        "failure": {
+            "type": "boolean"
+        }
+    },
+    "additionalProperties": false
+}
