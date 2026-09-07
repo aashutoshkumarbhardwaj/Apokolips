@@ -1,0 +1,102 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Database Telemetry Event",
+    "description": "Schema for database server infrastructure telemetry.",
+    "type": "object",
+    "required": [
+        "timestamp",
+        "server_id",
+        "asset_type",
+        "cpu_utilization",
+        "memory_utilization",
+        "disk_utilization",
+        "active_connections",
+        "queries_per_second",
+        "query_latency_ms",
+        "cache_hit_ratio",
+        "disk_iops",
+        "replication_lag_seconds",
+        "deadlocks",
+        "error_count",
+        "scenario",
+        "failure"
+    ],
+    "properties": {
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "server_id": {
+            "type": "string",
+            "pattern": "^db-server-[0-9]{3}$"
+        },
+        "asset_type": {
+            "type": "string",
+            "const": "database"
+        },
+        "cpu_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "memory_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "disk_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "active_connections": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "queries_per_second": {
+            "type": "number",
+            "minimum": 0
+        },
+        "query_latency_ms": {
+            "type": "number",
+            "minimum": 0
+        },
+        "cache_hit_ratio": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "disk_iops": {
+            "type": "number",
+            "minimum": 0
+        },
+        "replication_lag_seconds": {
+            "type": "number",
+            "minimum": 0
+        },
+        "deadlocks": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "error_count": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "scenario": {
+            "type": "string",
+            "enum": [
+                "normal",
+                "high_load",
+                "slow_queries",
+                "connection_pressure",
+                "storage_pressure",
+                "replication_lag",
+                "failure"
+            ]
+        },
+        "failure": {
+            "type": "boolean"
+        }
+    },
+    "additionalProperties": false
+}

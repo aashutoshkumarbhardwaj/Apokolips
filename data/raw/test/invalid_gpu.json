@@ -1,0 +1,15 @@
+{
+    "timestamp": "2026-09-08T02:00:00Z",
+    "server_id": "gpu-server-001",
+    "gpu_id": "gpu-server-001-gpu-0",
+    "asset_type": "gpu",
+    "gpu_utilization": 150,
+    "gpu_memory_utilization": 80,
+    "temperature_celsius": 70,
+    "power_usage_watts": 300,
+    "ecc_errors": 0,
+    "memory_errors": 0,
+    "scenario": "normal",
+    "failure": false,
+    "random_field": "this should fail"
+}

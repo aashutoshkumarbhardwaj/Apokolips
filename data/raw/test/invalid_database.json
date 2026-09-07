@@ -1,0 +1,19 @@
+{
+    "timestamp": "2026-09-08T03:00:00Z",
+    "server_id": "db-server-001",
+    "asset_type": "database",
+    "cpu_utilization": 150,
+    "memory_utilization": 70,
+    "disk_utilization": 50,
+    "active_connections": 100,
+    "queries_per_second": 500,
+    "query_latency_ms": 50,
+    "cache_hit_ratio": 95,
+    "disk_iops": 1000,
+    "replication_lag_seconds": 1,
+    "deadlocks": 0,
+    "error_count": 0,
+    "scenario": "normal",
+    "failure": false,
+    "unexpected_field": "bad"
+}

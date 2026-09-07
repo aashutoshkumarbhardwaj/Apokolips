@@ -1,0 +1,80 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "GPU Telemetry Event",
+    "description": "Schema for GPU server infrastructure telemetry.",
+    "type": "object",
+    "required": [
+        "timestamp",
+        "server_id",
+        "gpu_id",
+        "asset_type",
+        "gpu_utilization",
+        "gpu_memory_utilization",
+        "temperature_celsius",
+        "power_usage_watts",
+        "ecc_errors",
+        "memory_errors",
+        "scenario",
+        "failure"
+    ],
+    "properties": {
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "server_id": {
+            "type": "string",
+            "pattern": "^gpu-server-[0-9]{3}$"
+        },
+        "gpu_id": {
+            "type": "string",
+            "pattern": "^gpu-server-[0-9]{3}-gpu-[0-9]+$"
+        },
+        "asset_type": {
+            "type": "string",
+            "const": "gpu"
+        },
+        "gpu_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "gpu_memory_utilization": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "temperature_celsius": {
+            "type": "number",
+            "minimum": -50,
+            "maximum": 150
+        },
+        "power_usage_watts": {
+            "type": "number",
+            "minimum": 0
+        },
+        "ecc_errors": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "memory_errors": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "scenario": {
+            "type": "string",
+            "enum": [
+                "normal",
+                "high_utilization",
+                "thermal_spike",
+                "memory_pressure",
+                "ecc_error",
+                "failure"
+            ]
+        },
+        "failure": {
+            "type": "boolean"
+        }
+    },
+    "additionalProperties": false
+}
