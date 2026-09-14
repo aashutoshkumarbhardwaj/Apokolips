@@ -31,6 +31,10 @@ env/
 venv/
 ENV/
 
+# Spark & Streaming Checkpoints
+checkpoints/
+data/processed/checkpoints/
+
 # IDEs and Editors
 .vscode/
 .idea/

@@ -1,0 +1,14 @@
+{
+    "timestamp": null,
+    "server_id": null,
+    "gpu_id": "gpu-server-001-gpu-0",
+    "asset_type": "gpu",
+    "gpu_utilization": 150.0,
+    "gpu_memory_utilization": 80.0,
+    "temperature_celsius": 70.0,
+    "power_usage_watts": 300.0,
+    "ecc_errors": 0,
+    "memory_errors": 0,
+    "scenario": "normal",
+    "failure": false
+}
